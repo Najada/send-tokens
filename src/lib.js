@@ -71,10 +71,10 @@ async function sendTokens(token, to, amount, opts={}) {
 
 	say(`Token: ${tokenSymbol.bold} @ ${token.green.bold} (${tokenDecimals} decimal places)`);
 	say(`${sender.blue.bold} -> ${toDecimal(amount, tokenDecimals).yellow.bold} ${tokenSymbol} -> ${to.blue.bold}`);
-	if (opts.confirm) {
-		if (!(await confirm()))
-			return;
-	}
+	//if (opts.confirm) {
+	//	if (!(await confirm()))
+	//		return;
+	//}
 
 	const {tx} = await transfer(contract, to, amount, txOpts);
 	const txId = await tx.txId;
